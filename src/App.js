@@ -14,39 +14,43 @@ function App() {
       setLastName(value);
     }
   };
-  const displayFullName = () => {
+  const displayFullName = (e) => {
+    e.preventDefault();
     const name = `${firstName} ${lastName}`;
     setFullName(name);
   };
   return (
     <div className="container">
       <h1>Full Name Display</h1>
-      <div className="inputField">
-        <label>First Name:</label>
-        <input
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={handleInputChange}
-          required
-        />
+      <form onSubmit={displayFullName}>
+        <div className="inputField">
+          <label>First Name:</label>
+          <input
+            type="text"
+            name="firstName"
+            value={firstName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="inputField">
+          <label>Last Name:</label>
+          <input
+            type="text"
+            name="lastName"
+            value={lastName}
+            onChange={handleInputChange}
+            required
+          />
+          <br />
+        </div>
+        <button className="submitBtn" type="submit">
+          Submit
+        </button>
+      </form>
+      <div className="displayFullName">
+        {fullName && <p>Full Name: {fullName}</p>}
       </div>
-      <div className="inputField">
-        <label>Last Name:</label>
-        <input
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={handleInputChange}
-          required
-        />
-        <br />
-      </div>
-      <button className="submitBtn" type="submit" onClick={displayFullName}>
-        Submit
-      </button>
-
-      <div className="displayFullName">{fullName && <p>Full Name: {fullName}</p>}</div>
     </div>
   );
 }

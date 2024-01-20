@@ -16,10 +16,8 @@ function App() {
   };
   const displayFullName = (e) => {
     e.preventDefault();
-    if (firstName.length > 0 && lastName.length > 0) {
-      const name = `${firstName} ${lastName}`;
-      setFullName(name);
-    }
+    const name = `${firstName} ${lastName}`;
+    setFullName(name);
   };
   return (
     <div className="container">

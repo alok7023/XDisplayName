@@ -16,8 +16,10 @@ function App() {
   };
   const displayFullName = (e) => {
     e.preventDefault();
-    const name = `${firstName} ${lastName}`;
-    setFullName(name);
+    if (firstName.length > 0 && lastName.length > 0) {
+      const name = `${firstName} ${lastName}`;
+      setFullName(name);
+    }
   };
   return (
     <div className="container">
@@ -42,14 +44,13 @@ function App() {
             onChange={handleInputChange}
             required
           />
-          <br />
         </div>
         <button className="submitBtn" type="submit">
           Submit
         </button>
       </form>
       <div className="displayFullName">
-        {firstName && lastName && <p>Full Name: {fullName}</p>}
+        {fullName && <p>Full Name: {fullName}</p>}
       </div>
     </div>
   );

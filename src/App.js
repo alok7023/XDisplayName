@@ -49,7 +49,7 @@ function App() {
         </button>
       </form>
       <div className="displayFullName">
-        {fullName && <p>Full Name: {fullName}</p>}
+        {firstName && lastName && <p>Full Name: {fullName}</p>}
       </div>
     </div>
   );
